@@ -1,0 +1,44 @@
+<!--Question 7 
+: ( 30 points): Write a program that will help an elementary school student learn multiplication. Use Math.random to produce two positive integers between 1 and 10. It should then display a question such as “What is the multiplication of 7 and 9? “. The student then types the answer into a text field. Your program checks the student's answer. If it is correct, display the string "Very good!", and generate a new question. If the answer is wrong, display the string "No. Please try again.", and let the student try the same question again repeatedly until the student finally gets it right. 
+-->
+<html>
+	<head>
+		<title>Question6</title>
+		<script type="text/javascript" >
+		<!--
+			var n1;
+			var n2;
+			
+			function start(){// On page loading ask first question
+				createQ();	
+			}
+			function createQ(){ //Create question
+				n1 = Math.floor((Math.random()*10));
+				n2 = Math.floor((Math.random()*10));
+				document.getElementById("Q").innerHTML  = "What is the multiplication of <b>" + n1 + "</b> and <b>" + n2 + "</b>?";
+				document.getElementById("answer").focus();
+			}
+			function checkanswer(){ // check user answer true or not . and show the result
+				var answer = parseInt(document.getElementById("answer").value);
+				if (answer == n1 * n2){//Delete true answer and waiting new 
+					document.getElementById("result").innerHTML  = "<font color='blue'> <p><b> Very good!</b></p> </font>";//When enter true answer,Show the result
+					createQ();																							//Create new question
+				}
+				else{
+					document.getElementById("result").innerHTML  = "<font color='red'> No. Please try again.</font>";//When enter wrong answer, Showresult
+				}
+			}
+		-->
+		</script>     
+</head>
+
+<body onload="start();">
+
+<h1> The program that will help an elementary school student learn multiplication</h1>
+  <p>
+  <label id="Q"> </label><br/>
+  <input type="text" id="answer"><button onclick="checkanswer()">Check the answer</button>
+  <label id="result"> </label><br/>
+  </p>
+</body>
+</html>

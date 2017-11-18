@@ -1,0 +1,36 @@
+<!--Question 6 (30  points): 
+Write a javascript program that takes number of rows and number of columns of a table via a windows prompt and creates a table. The program starts via a button, and fills the table with random integer numbers between 1 and 9.
+-->
+<html> 
+<head> 
+	<title>Question6</title> 
+	<script type="text/javascript">
+		function createtable(){
+			document.getElementById("div").innerHTML = "<table id=\"Table\" border=\"1\"> </table>";			
+			rnum = window.prompt("Please enter a number rows", 1);
+			cnum = window.prompt("Please enter a number columns",1);
+			
+			for(var i=0;i<parseInt(rnum);i++){ 
+				var x=document.getElementById('Table').insertRow(i);
+				for(var k=0;k<parseInt(cnum);k++){
+					var y=  x.insertCell(k);
+					y.innerHTML=Math.floor((Math.random()*10)); 
+				}
+			}
+			document.getElementById("result").innerHTML  = "<font color='blue'> <p><b>"+rnum +" rows x " + cnum + " columns table created</b></p> </font>"
+		}
+		</script>
+</head>
+
+<body>
+<h1>The program that takes # of rows and # of columns of a table via windows prompt and creates a table</h1>
+<p>
+	<form> 											<!-- User input for create table-->
+		<input type="button" onclick="createtable()" value="Create a table"> 
+	</form>
+<div id="div">
+</div>
+	<label id="result"> </label><br/>
+</p>
+</body>
+</html>
