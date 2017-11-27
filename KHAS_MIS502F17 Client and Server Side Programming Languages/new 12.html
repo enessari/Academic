@@ -1,0 +1,144 @@
+<html>
+	<head>
+		<title>Homework#2
+		</title>
+		<script type="text/javascript" >
+			var productprice =[3.25,5.99,10,4,7,6.78,12.49];
+			var productquantity=[0,0,0,0,0,0,0];
+			var productsubtotal=[0,0,0,0,0,0,0];
+			var p;
+			var PLen=productprice.length;
+						
+			function start(){
+				
+				document.getElementById("PriceInfo").innerHTML = "<button onclick=\"priceenter()\"> Change Product Prices </button>";
+				document.getElementById("sell").innerHTML = "<button onclick=\"Sell()\"> Sell </button></td>";
+				document.getElementById("total").innerHTML = "<button onclick=\"total()\"> GrandTotal </button></td>";
+				
+				var txt = "<table border=\"1\"><tr>";
+				for (var i = 0; i < PLen; i++){
+					txt += "<th> Product <br> " + (i+1) + " </th>";	
+				}	
+				txt += "</tr><tr>";				
+				for (i = 0; i < PLen; i++){
+					txt += "<td>" + productprice[i] + " price <br>---<br>"+productquantity[i]+" unit sold <br>---<br>"+productsubtotal[i]+" Sub Total</td>";	
+				}	
+				txt += "</tr></table>";
+						
+				document.getElementById("Info").innerHTML = txt;	
+			}
+			
+			function priceenter(){
+					
+				p=parseInt(window.prompt("Enter product number for an item, -1 to quit: 1. Product-1 / 2. Product-2 / 3. product-3 / 4. Product-4 / 5. Product-5"));
+			
+				while(p!=-1){
+				
+					switch(p){
+						case 1: 
+							productprice [p-1]= window.prompt("Enter Price for Product "+p+" :");
+						break;
+						case 2:
+							productprice [p-1]= window.prompt("Enter Price for Product "+p+" :");
+						break;
+						case 3:
+							productprice [p-1]= window.prompt("Enter Price for Product "+p+" :");
+						break;
+						case 4:
+							productprice [p-1]= window.prompt("Enter Price for Product "+p+" :");
+						break;
+						case 5: 
+							productprice [p-1]= window.prompt("Enter Price for Product "+p+" :");
+						case 6: 
+							productprice [p-1]= window.prompt("Enter Price for Product "+p+" :");
+						case 7: 
+							productprice [p-1]= window.prompt("Enter Price for Product "+p+" :");
+						break;
+						default: window.alert("No proper input, Please try Again");
+						break;
+					}
+					p=parseInt(window.prompt("Enter product number, -1 to Quit"));
+				}
+				document.getElementById("PriceInfo").innerHTML = "!!!!!!!!New Prices assigned !!!!!!!!";
+				setTimeout(start, 1500);
+			}
+						
+			function Sell(){
+				p=Number(document.getElementById("Product").value);
+				q=Number(document.getElementById("Quantity").value);
+				if (q==0){
+					p=q;
+					}
+						
+					switch(p){
+						case 1: 
+							productquantity [p-1]=q+productquantity [p-1];
+							productsubtotal [p-1]=productprice[p-1]*productquantity[p-1];
+						break;
+						case 2:
+							productquantity [p-1]=q+productquantity [p-1];
+							productsubtotal [p-1]=productprice[p-1]*productquantity[p-1];
+						break;
+						case 3:
+							productquantity [p-1]=q+productquantity [p-1];
+							productsubtotal [p-1]=productprice[p-1]*productquantity[p-1];
+						break;
+						case 4:
+							productquantity [p-1]=q+productquantity [p-1];
+							productsubtotal [p-1]=productprice[p-1]*productquantity[p-1];
+						break;
+						case 5: 
+							productquantity [p-1]=q+productquantity [p-1];
+							productsubtotal [p-1]=productprice[p-1]*productquantity[p-1];
+						break;
+						case 6: 
+							productquantity [p-1]=q+productquantity [p-1];
+							productsubtotal [p-1]=productprice[p-1]*productquantity[p-1];
+						break;		
+						case 7: 
+							productquantity [p-1]=q+productquantity [p-1];
+							productsubtotal [p-1]=productprice[p-1]*productquantity[p-1];
+						break;						
+						default: window.alert("No proper Product, Please try Again");
+						break;
+					}
+						
+				document.getElementById("sell").innerHTML = "!!!!!!!!Product Sold and Subtotal Calculated!!!!!!!!";
+				setTimeout(start, 1000);
+				
+			}
+			
+			function total(){
+				var total=0;
+				for (i = 0; i < PLen; i++){
+					total = total + productsubtotal[i];
+					document.getElementById("total").innerHTML = "Total Calculated!!!!!!!! " + total;
+					setTimeout(start, 7500);
+					}
+				}
+		</script>     
+	</head>
+
+	<body onload="start();">
+		<h1>Mail Order</h1>	
+		<div id = "PriceInfo" ></div>
+		<p></p>
+		<div id = "Info" ></div>
+			<table id="Results" border="1">
+				<tr>
+					<th>Product Number</th>
+					<th>Quantity Sold</th>
+					<th>Action</th>
+				 </tr>
+				<tr>
+					<td><input type="text" value="" name="Product" id="Product" default="0"/></td>
+					<td><input type="text" value="" name="Quantity" id="Quantity" default="0"/></td>
+					<td id="sell"><button onclick="Sell()"> Sell </button></td>
+				</tr>
+				<tr>
+					<td id="total"><button onclick="total()"> Grand Total </button></td>
+				</tr>
+			</table>
+			<hr><p>For calculate total sold,please select -1 product <br> Press F5 or Refresh to load script again.</p></hr>
+	</body>
+</html>

@@ -1,0 +1,1 @@
+<INPUT onclick=window.print(); id=printButtonID class=noprint type=button value=Yazdir>
